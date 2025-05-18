@@ -10,7 +10,10 @@ const cartRouter = require('./routes/cart.routes');
 const PORT = process.env.PORT || 3000
 const server = express();
 
-server.use(cors());
+server.use(cors({
+  origin: '*', // allow any origin
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+}));
 server.use(express.json());
 
 server.use('/user', userRouter);
